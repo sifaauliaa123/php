@@ -9,7 +9,7 @@
     <h2>Tambah Data</h2>
     <form method="POST">
         <input type="text" name="nama" placeholder="Nama" required>
-        <input type="sandi" name="sandi" placeholder="sandi" required>
+        <input type="password" name="password" placeholder="password" required>
         <button type="submit" name="tambah">Simpan</button>
     </form>
 
@@ -22,8 +22,8 @@ error_reporting(E_ALL);
     // Logika Create
     if(isset($_POST['tambah'])){
         $nama = $_POST['nama'];
-        $sandi = $_POST['sandi'];
-        mysqli_query($koneksi, "INSERT INTO users (nama, sandi) VALUES('$nama', '$sandi')");
+        $password = $_POST['password'];
+        mysqli_query($koneksi, "INSERT INTO users (nama, password) VALUES('$nama', '$password')");
     }
 
     // Logika Delete
@@ -39,7 +39,7 @@ error_reporting(E_ALL);
         <tr>
             <th>ID</th>
             <th>Nama</th>
-            <th>sandi</th>
+            <th>password</th>
             <th>Aksi</th>
         </tr>
         <?php
@@ -49,7 +49,7 @@ error_reporting(E_ALL);
         <tr>
             <td><?php echo $d['id']; ?></td>
             <td><?php echo $d['nama']; ?></td>
-            <td><?php echo $d['sandi']; ?></td>
+            <td><?php echo $d['password']; ?></td>
             <td>
                 <a href="index.php?hapus=<?php echo $d['id']; ?>">Hapus</a>
             </td>
